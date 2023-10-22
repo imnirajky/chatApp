@@ -16,12 +16,13 @@ const Login = ()=>{
             }
         });
         const data = await response.json();
+        if(data.token){
+        console.log(data);
 
-        if(data.user){
             alert('Login Successfully!!');
         }else{
             alert('Please check your username and password');
-        }
+        } 
     }
 
     return (

@@ -9,13 +9,14 @@ exports.registerUser = async(req, res) => {
         await user.save();
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-        res.status(500).json({ error: 'Registration Failed' });
+        res.status(500).json({ message: 'Registration Failed' });
     }
 }
 
 
 exports.loginUser = async(req, res) => {
     const { email, password } = req.body;
+    // console.log(req.body);
     try {
         const user = await User.findOne({ email });
         if (!user) {
@@ -30,6 +31,7 @@ exports.loginUser = async(req, res) => {
             const authenticatedUser = {
                 email: user.email,
             };
+
             const token = jwt.sign(authenticatedUser, 'lotus@123');
             res.status(200).json({ token });
         }

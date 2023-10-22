@@ -4,6 +4,8 @@ import './index.css';
 import Header from './src/components/Header';
 import SignUp from './src/components/SignUp';
 import Login from './src/components/Login'
+import ChatPage from './src/components/ChatPage';
+
 import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
 
 
@@ -28,8 +30,11 @@ const appRouter = createBrowserRouter([
             element:<Login/>
             },
             {
-            path:'/signup',
+            path:'/',
             element:<SignUp/>
+            },{
+                path:'/chat',
+                element: <ChatPage />
             }
         ]
     }

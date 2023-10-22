@@ -13,8 +13,8 @@ connectDB();
 
 
 
-app.post('/user/signup', userController.registerUser);
-app.post('/user/login', userController.loginUser);
+app.post('/api/signup', userController.registerUser);
+app.post('/api/login', userController.loginUser);
 app.use('/chat', (req, res, next) => {
     const token = req.headers.authorization;
 
